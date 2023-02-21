@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.bg-identity {
+  background-color: #dc0a2d;
+}
+
+.text-identity {
+  color: #dc0a2d !important;
+}
+
+.bg-bug {
+  background-color: #a7b723;
+}
+
+.bg-dark {
+  background-color: #75574c;
+}
+
+.bg-dragon {
+  background-color: #7037ff;
+}
+
+.bg-electric {
+  background-color: #f9cf30;
+}
+
+.bg-fairy {
+  background-color: #e69eac;
+}
+
+.bg-fighting {
+  background-color: #c12239;
+}
+
+.bg-fire {
+  background-color: #f57d31;
+}
+
+.bg-flying {
+  background-color: #a891ec;
+}
+
+.bg-ghost {
+  background-color: #70559b;
+}
+
+.bg-normal {
+  background-color: #aaa67f;
+}
+
+.bg-grass {
+  background-color: #74cb48;
+}
+
+.bg-ground {
+  background-color: #dec16b;
+}
+
+.bg-ice {
+  background-color: #9ad6df;
+}
+
+.bg-poison {
+  background-color: #a43e9e;
+}
+
+.bg-psychic {
+  background-color: #fb5584;
+}
+
+.bg-rock {
+  background-color: #b69e31;
+}
+
+.bg-steel {
+  background-color: #b7b9d0;
+}
+
+.bg-water {
+  background-color: #6493eb;
+}
+
+.grayscale-dark {
+  color: #212121;
+}
+
+.grayscale-medium {
+  color: #666666;
+}
+
+.bg-grayscale-medium {
+  background-color: #666666 !important;
+}
+
+.grayscale-ligth {
+  color: #e0e0e0;
+}
+
+.bg-grayscale-ligth {
+  background-color: #e0e0e0;
+}
+
+.grayscale-background {
+  background: linear-gradient(to bottom, white 0%, white 60%, #efefef 60%, #efefef 100%);
+}
+
+.page-link:hover {
+  background-color: #dc0a2d;
+  color: white !important;
+}
+
+.active {
+  background-color: #dc0a2d !important;
+  color: white !important;
+}
+
+.text-bug {
+  color: #a7b723;
+}
+
+.text-dark {
+  color: #75574c;
+}
+
+.text-dragon {
+  color: #7037ff;
+}
+
+.text-electric {
+  color: #f9cf30;
+}
+
+.text-fairy {
+  color: #e69eac;
+}
+
+.text-fighting {
+  color: #c12239;
+}
+
+.text-fire {
+  color: #f57d31;
+}
+
+.text-flying {
+  color: #a891ec;
+}
+
+.text-ghost {
+  color: #70559b;
+}
+
+.text-normal {
+  color: #aaa67f;
+}
+
+.text-grass {
+  color: #74cb48;
+}
+
+.text-ground {
+  color: #dec16b;
+}
+
+.text-ice {
+  color: #9ad6df;
+}
+
+.text-poison {
+  color: #a43e9e;
+}
+
+.text-psychic {
+  color: #fb5584;
+}
+
+.text-rock {
+  color: #b69e31;
+}
+
+.text-steel {
+  color: #b7b9d0;
+}
+
+.text-water {
+  color: #6493eb;
+}
+
+.pokemon-stats {
+  margin-top: 150px;
+  padding: 56px 20px 20px;
+}
+
+.pokemon-img {
+  left: 0;
+  right: 0;
+  top: -140px;
+}
+
+.pokemon-img img {
+  z-index: 1;
+}
+
+.pokeball-img {
+  right: 10%;
+  top: -70px;
+  opacity: 30%;
+}
