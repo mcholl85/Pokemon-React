@@ -20,10 +20,7 @@ function Home() {
   return (
     <div className='container-fluid p-0 pt-3 d-flex flex-column bg-identity'>
       <nav className='navbar navbar-light mx-3 mx-sm-5 gap-2'>
-        <Link
-          className='navbar-brand fw-bold d-flex align-items-center text-white div'
-          to='/pokemon'
-        >
+        <Link className='navbar-brand fw-bold d-flex align-items-center text-white div' to='/'>
           <svg
             className='me-2'
             width='40'
