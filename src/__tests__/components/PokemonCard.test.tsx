@@ -6,7 +6,7 @@ describe('PokemonCard', () => {
   test('Matches DOM snapshots', () => {
     const { asFragment } = render(
       <MemoryRouter>
-        <PokemonCard order={2} name={'test'} />
+        <PokemonCard order={2} name={'test'} imgSrc={''} />
       </MemoryRouter>,
     )
 
@@ -21,7 +21,7 @@ describe('PokemonCard', () => {
   `('Should render the pokemon order: $order & name: $name values', ({ order, name }) => {
     render(
       <MemoryRouter>
-        <PokemonCard order={order} name={name} />
+        <PokemonCard order={order} name={name} imgSrc={''} />
       </MemoryRouter>,
     )
 

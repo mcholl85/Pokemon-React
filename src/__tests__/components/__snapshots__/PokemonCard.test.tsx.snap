@@ -23,7 +23,7 @@ exports[`PokemonCard Matches DOM snapshots 1`] = `
           <img
             alt="pokemon image"
             height="150"
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
+            src=""
             width="150"
           />
         </div>
