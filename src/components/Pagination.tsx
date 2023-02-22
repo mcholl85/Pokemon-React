@@ -13,7 +13,7 @@ function Pagination({ currentPage, totalPage = 1, setPage }: PaginationProps) {
 
   return (
     <nav aria-label='navigation' className='mb-2'>
-      <ul className='pagination justify-content-start'>
+      <ul className='pagination flex-wrap justify-content-start'>
         <li className='page-item px-1'>
           <button
             className={`page-link border-0 ${
