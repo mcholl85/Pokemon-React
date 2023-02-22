@@ -1,19 +1,30 @@
+import { useQuery } from '@tanstack/react-query'
 import { Link, useParams } from 'react-router-dom'
+import Loading from '../components/Loading'
+import NotFound from '../components/NotFound'
 import PokemonImg from '../components/PokemonImg'
-import { MAX_MOVES, STAT_INDICES } from '../constants'
-import usePokemon from '../services/hooks/use-pokemon'
+import { STAT_INDICES } from '../constants'
+import { getPokemon } from '../services/api/pokemon'
 
 function Pokemon() {
   const { name } = useParams() as Record<'name', string>
-  const { isSuccess, isLoading, pokemon } = usePokemon({ name })
-  const { imgSrc, types, stats, id, height, weight, moves } = pokemon
+  const {
+    data: pokemon,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useQuery({
+    queryKey: ['pokemon', name],
+    queryFn: async () => getPokemon(name),
+  })
 
-  if (isLoading) return <></>
+  if (isLoading) return <Loading />
+  if (isError) return <NotFound />
 
   return (
     <div className='container-fluid p-0 vh-100 d-flex flex-column'>
       {isSuccess && (
-        <div className={`p-3 flex-fill overflow-y-auto bg-${types[0]}`}>
+        <div className={`p-3 flex-fill overflow-y-auto bg-${pokemon.theme}`}>
           <div className='col-lg-8 mx-auto'>
             <div className='d-flex align-items-center justify-content-between'>
               <div className='d-flex align-items-center'>
@@ -33,12 +44,17 @@ function Pokemon() {
                 </Link>
                 <h1 className='fw-bold text-white text-capitalize m-0'>{name}</h1>
               </div>
-              <h4 className='fw-bold text-white'># {id}</h4>
+              <h4 className='fw-bold text-white'># {pokemon.id}</h4>
             </div>
             <div className='pokemon-stats rounded-4 bg-white position-relative'>
               <div className='pokemon-img d-flex align-items-center justify-content-center position-absolute'>
-                {imgSrc && (
-                  <PokemonImg imgSrc={imgSrc} alt='Pokemon image' height='200' width='200' />
+                {pokemon.imgSrc && (
+                  <PokemonImg
+                    imgSrc={pokemon.imgSrc}
+                    alt='Pokemon image'
+                    height='200'
+                    width='200'
+                  />
                 )}
                 <svg
                   width='206'
@@ -62,7 +78,7 @@ function Pokemon() {
               </div>
               <div>
                 <div className='d-flex align-items-center justify-content-center px-4'>
-                  {types.map((type) => (
+                  {pokemon.types.map((type) => (
                     <span
                       key={type}
                       className={`form-text text-white fw-bold px-4 py-2 rounded-pill m-2 bg-${type}`}
@@ -72,7 +88,7 @@ function Pokemon() {
                   ))}
                 </div>
                 <div className='py-3'>
-                  <h4 className={`text-${types[0]} fw-bold text-center`}>About</h4>
+                  <h4 className={`text-${pokemon.theme} fw-bold text-center`}>About</h4>
                 </div>
                 <div className='py-3'>
                   <div className='row'>
@@ -92,7 +108,7 @@ function Pokemon() {
                           />
                         </svg>
 
-                        <h6 className='mb-0 text-black'>{weight} kg</h6>
+                        <h6 className='mb-0 text-black'>{pokemon.weight} kg</h6>
                       </div>
                       <div>
                         <h6 className='mb-0 text-secondary mt-3'>Weight</h6>
@@ -114,14 +130,14 @@ function Pokemon() {
                           />
                         </svg>
 
-                        <h6 className='mb-0 text-black'>{height} m</h6>
+                        <h6 className='mb-0 text-black'>{pokemon.height} m</h6>
                       </div>
                       <div>
                         <h6 className='mb-0 text-secondary mt-3'>Height</h6>
                       </div>
                     </div>
                     <div className='col-4 text-center d-flex align-items-center justify-content-center flex-column'>
-                      {moves.slice(0, MAX_MOVES).map((move) => (
+                      {pokemon.moves.map((move) => (
                         <div key={move} className='d-flex align-items-center'>
                           <h6 className='mb-0 text-black text-capitalize'>{move}</h6>
                         </div>
@@ -133,20 +149,22 @@ function Pokemon() {
                   </div>
                 </div>
                 <div className='py-3'>
-                  <h4 className={`text-${types[0]} fw-bold text-center`}>Base Stats</h4>
+                  <h4 className={`text-${pokemon.theme} fw-bold text-center`}>Base Stats</h4>
                   <div className='mt-4'>
-                    {stats.map((stat) => (
+                    {pokemon.stats.map((stat) => (
                       <div
                         key={stat.name}
                         className='d-flex align-items-center justify-content-center border-bottom border-2 p-md-3 p-2'
                       >
                         <div className='flex-fill'>
-                          <h6 className={`fw-bold text-${types[0]} text-uppercase`}>{stat.name}</h6>
+                          <h6 className={`fw-bold text-${pokemon.theme} text-uppercase`}>
+                            {stat.name}
+                          </h6>
                           <div className='d-flex align-items-center'>
                             <h6 className='mb-0'>{stat.base}</h6>
                             <div className='progress w-100 ms-3 rounded-pill'>
                               <div
-                                className={`progress-bar bg-${types[0]}`}
+                                className={`progress-bar bg-${pokemon.theme}`}
                                 role='progressbar'
                                 style={{ width: stat.base / STAT_INDICES + '%' }}
                               ></div>

@@ -51,8 +51,8 @@ function Home() {
           <div className='row p-1'>
             <Pagination currentPage={currentPage} totalPage={totalPage} setPage={setParams} />
             {pokemons.length > 0 ? (
-              pokemons.map(({ name, order }) => (
-                <PokemonCard key={name} order={order} name={name} />
+              pokemons.map(({ name, order, imgSrc }) => (
+                <PokemonCard key={name} order={order} name={name} imgSrc={imgSrc} />
               ))
             ) : (
               <NotFound />

@@ -1,15 +1,15 @@
-import { Pokemons } from '../types/pokemons'
+type Pokemon = {
+  name: string
+  order: number
+  imgSrc: string
+}
 
-export const filteredPokemonsBySearch = (pokemons: Pokemons[], search?: string) =>
+export const filteredPokemonsBySearch = (pokemons: Pokemon[], search?: string) =>
   search
     ? [...pokemons].filter((pokemon) => pokemon.name.toLowerCase().includes(search.toLowerCase()))
     : pokemons
 
-export const filteredPokemonsByPage = (
-  pokemons: Pokemons[],
-  currentPage: number,
-  entries: number,
-) =>
+export const filteredPokemonsByPage = (pokemons: Pokemon[], currentPage: number, entries: number) =>
   [...pokemons].filter(
     (_pokemon, index) => index <= currentPage * entries - 1 && index >= (currentPage - 1) * entries,
   )

@@ -1,15 +1,13 @@
 import { Link } from 'react-router-dom'
-import { SPRITE_EXTENSION, SPRITE_URL } from '../constants'
 import PokemonImg from './PokemonImg'
 
 type PokemonCardProps = {
   order: number
   name: string
+  imgSrc: string
 }
 
-function PokemonCard({ order, name }: PokemonCardProps) {
-  const imgSrc = `${SPRITE_URL}${order}${SPRITE_EXTENSION}`
-
+function PokemonCard({ order, name, imgSrc }: PokemonCardProps) {
   return (
     <div key={order} className='col-xl-3 col-lg-4 col-sm-6 pb-md-5 pb-3'>
       <Link to={`/${name}`} className='text-decoration-none'>

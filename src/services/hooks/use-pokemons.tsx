@@ -6,7 +6,7 @@ import {
   filteredPokemonsBySearch,
   pageParamsIsValid,
 } from '../../utils/filtereredPokemons'
-import { getPokemons } from '../api/pokemons'
+import { getPokemons } from '../api/pokemon'
 
 type usePokemonsProps = {
   search?: string
@@ -18,14 +18,7 @@ function usePokemons({ search, page }: usePokemonsProps) {
 
   const { data, isLoading, isSuccess } = useQuery({
     queryKey: ['pokemons'],
-    queryFn: async () => getPokemons(10000, 0),
-    select: (data) => ({
-      pokemons: data.results.map((pokemon: { name: string }, index: number) => ({
-        order: index + 1,
-        name: pokemon.name,
-      })),
-      count: data.count,
-    }),
+    queryFn: getPokemons,
   })
 
   const pokemonsBySearch = data?.pokemons && filteredPokemonsBySearch(data?.pokemons, search)
