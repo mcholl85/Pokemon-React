@@ -1,5 +1,5 @@
 import { Link, useSearchParams } from 'react-router-dom'
-import NotFound from '../components/Error'
+import NotFound from '../components/NotFound'
 import Loading from '../components/Loading'
 import Pagination from '../components/Pagination'
 import PokemonCard from '../components/PokemonCard'

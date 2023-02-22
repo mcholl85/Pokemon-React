@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination Matches DOM snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    aria-label="navigation"
+    class="mb-2"
+  >
+    <ul
+      class="pagination flex-wrap justify-content-start"
+    >
+      <li
+        class="page-item px-1"
+      >
+        <button
+          class="page-link border-0 text-identity rounded-2 shadow-none"
+          tabindex="-1"
+        >
+          Previous
+        </button>
+      </li>
+      <li
+        class="page-item px-1"
+      >
+        <button
+          class="page-link text-identity border-0 rounded-2 shadow-none "
+        >
+          1
+        </button>
+      </li>
+      <li
+        class="page-item px-1"
+      >
+        <button
+          class="page-link text-identity border-0 rounded-2 shadow-none active"
+        >
+          2
+        </button>
+      </li>
+      <li
+        class="page-item px-1"
+      >
+        <button
+          class="page-link border-0 disabled"
+        >
+          Next
+        </button>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;
