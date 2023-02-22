@@ -1,6 +1,8 @@
 import { Link, useSearchParams } from 'react-router-dom'
+import NotFound from '../components/Error'
+import Loading from '../components/Loading'
 import Pagination from '../components/Pagination'
-import PokemonList from '../components/PokemonsList'
+import PokemonCard from '../components/PokemonCard'
 import Search from '../components/Search'
 import usePokemons from '../services/hooks/use-pokemons'
 
@@ -45,15 +47,19 @@ function Home() {
         <Search search={search} setSearch={setParams} />
       </nav>
       <div className='bg-white m-2 m-sm-4 p-2 p-sm-4 rounded-3 min-vh-100'>
-        {pokemons && pokemons.length > 0 ? (
+        {pokemons && (
           <div className='row p-1'>
             <Pagination currentPage={currentPage} totalPage={totalPage} setPage={setParams} />
-            <PokemonList pokemons={pokemons} />
+            {pokemons.length > 0 ? (
+              pokemons.map(({ name, order }) => (
+                <PokemonCard key={name} order={order} name={name} />
+              ))
+            ) : (
+              <NotFound />
+            )}
           </div>
-        ) : (
-          <div>Sorry, no result...</div>
         )}
-        {isLoading && <div>Loading...</div>}
+        {isLoading && <Loading />}
       </div>
     </div>
   )
