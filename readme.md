@@ -2,7 +2,9 @@
 
 ## Application
 
-![A Pokemon](http://image.noelshack.com/fichiers/2023/08/3/1677106154-capture-d-ecran-2023-02-22-a-23-48-43.png)
+<p align="center">
+<img src="http://image.noelshack.com/fichiers/2023/08/3/1677106154-capture-d-ecran-2023-02-22-a-23-48-43.png"  width="80%" alt="Presentation pokemon"/>
+</p>
 
 [**Figma Design**](https://www.figma.com/community/file/979132880663340794)
 
